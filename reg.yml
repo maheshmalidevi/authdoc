@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+   - name: register varibles
+     shell: cat /etc/passwd | grep -i ansible
+     register: out
+   - name: printing register varibles
+     debug: 
+          msg: "{{ out.stdout }}"
+...
